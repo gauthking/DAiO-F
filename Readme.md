@@ -22,7 +22,7 @@ Follow the below steps and the [YouTube Video](https://youtu.be/KCXaNuWVY70) to 
      - or alternatively visit the [Goolge Colab Link](https://colab.research.google.com/drive/1qR-o_azL6BG4EPQWACzb7xvPeX3lCOZn?usp=sharing)
      - Run all the cells and will result in an ngrok API base URL will be created > copy this 
 3. Back-End
-     - Go to the "BackEnd" folder and activate the python virtual environment using ```python -n venv testtransac```
+     - Go to the "DAiO-FASTBACKENDAPI" folder and activate the python virtual environment using ```python -n venv testtransac```
      - To activate the environment do this ```.\testtransac\Scripts\activate```
      - Intall all the requirements via ```pip install -r requirements.txt```
      - Now go to main.py and paste in your ngrok base URL in this code line ![WhatsApp Image 2023-06-10 at 04 22 45](https://github.com/AmeiyAcharya/DAiO/assets/90678802/d435d9f0-e720-422e-b1e1-1dedd9e9d44d)
