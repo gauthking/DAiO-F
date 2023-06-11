@@ -1,4 +1,5 @@
-# **DAiO** 
+# **DAiO** ![Picture2](https://github.com/chiranjeev13/DAiO-F/assets/90678802/179e84ba-7b69-4909-aee1-9140a53e358d)
+
 We have prepared this README file with great care to provide a comprehensive guide to both deploying our work for developers and understanding the journey of this project. We kindly request that you review it.
 
 # Sections:
@@ -10,18 +11,18 @@ We have prepared this README file with great care to provide a comprehensive gui
     -	What’s Next for Us
 
 # 1. Project Setup
-Follow the below steps and the [YouTube Video]() to replicate our system
+Follow the below steps and the [YouTube Video](https://youtu.be/KCXaNuWVY70) to replicate our system
 
 1. Front-End
      - Clone this repository
-     - Go to the "DAIO-Frontend" folder and do ```npm i```
+     - Go to the "DAIO-FRONTEND" folder and do ```npm i```
      - To start the front end use ```npm start``` to run the development server
 2. Activating the Machine Learning Model API ( FastAPI running on Google Colab )
      - In the repo go to the "DAIO-ML-MODELS" directory and run the "sentimentAI.ipynb" on Google Colab
      - or alternatively visit the [Goolge Colab Link](https://colab.research.google.com/drive/1qR-o_azL6BG4EPQWACzb7xvPeX3lCOZn?usp=sharing)
      - Run all the cells and will result in an ngrok API base URL will be created > copy this 
 3. Back-End
-     - Go to the "BackEnd" folder and activate the python virtual environment using ```python -m venv testtransac```
+     - Go to the "BackEnd" folder and activate the python virtual environment using ```python -n venv testtransac```
      - To activate the environment do this ```.\testtransac\Scripts\activate```
      - Intall all the requirements via ```pip install -r requirements.txt```
      - Now go to main.py and paste in your ngrok base URL in this code line ![WhatsApp Image 2023-06-10 at 04 22 45](https://github.com/AmeiyAcharya/DAiO/assets/90678802/d435d9f0-e720-422e-b1e1-1dedd9e9d44d)
