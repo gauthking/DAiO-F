@@ -15,7 +15,7 @@ const Dashboard = () => {
   const [disabledButtons, setDisabledButtons] = useState([]);
   const [AIprivKey, setAIprivKey] = useState("")
   const [AIPbKey, setAIPbKey] = useState("")
-  const [aiStatus, setAiStatus] = useState([])
+  const [aiVotes, setAiVotes] = useState([]);
   const navigate = useNavigate()
   const {
     connectWallet,
@@ -49,20 +49,38 @@ const Dashboard = () => {
       );
       setDisabledButtons(disabledButtons);
     };
-    let tempArr = []
-    const setAIVoteStatuses = async () => {
-      proposalData.map(async (proposal) => {
-        console.log(parseInt(proposal[0]._hex))
-        const vote = await checkVotedAI(AIPbKey, parseInt(proposal[0]._hex));
-        tempArr.push(vote)
-      })
-      setAiStatus(tempArr)
-    }
-    setAIVoteStatuses();
+    // const setAIVoteStatuses = async () => {
+    //   let tempArr = []
+    //   proposalData.map(async (proposal) => {
+    //     // console.log(parseInt(proposal[0]._hex))
+    //     const vote = await checkVotedAI(AIPbKey, parseInt(proposal[0]._hex));
+    //     tempArr.push(vote)
+    //   })
+    //   setAiStatus(tempArr)
+    // }
+    // setAIVoteStatuses();
     fetchDisabledButtons();
 
-  }, [proposalData, walletAddress]);
-  console.log(aiStatus)
+  }, [walletAddress]);
+
+  useEffect(() => {
+    const fetchAiVotes = async () => {
+      const votes = await Promise.all(
+        proposalData.map(async (proposal) => {
+          const vote = await checkVotedAI(AIPbKey, parseInt(proposal[0]._hex));
+          return {
+            proposalId: parseInt(proposal[0]._hex),
+            voted: vote
+          };
+        })
+      );
+      setAiVotes(votes);
+    };
+
+    fetchAiVotes();
+  }, [AIPbKey, proposalData]);
+
+  console.log(AIPbKey)
   const handleConnectWallet = () => {
     if (providerConnected && isRegistered) {
       // Render the wallet address
@@ -104,6 +122,7 @@ const Dashboard = () => {
   console.log(AIPbKey, AIprivKey)
 
   const getKeys = async () => {
+    // console.log(await checkVoted(AIPbKey, 2))
     try {
       const response = await instance.post(`/getaikeys/${walletAddress}`);
       const keys = response.data;
@@ -147,10 +166,9 @@ const Dashboard = () => {
       <button className={styles.addProposalBtn} onClick={() => navigate("/AddProposal")}>Add Proposal</button>
       <div className={styles.userInfo}>
         <p>AI Public Key - {AIPbKey}</p>
-        {aiStatus.map((val, index) => (
-          val === true ? <div key={index}>AI Voted on Proposal ID - {index}</div> : null
+        {aiVotes.map((vote) => (
+          vote.voted && <div>AI Voted on Proposal ID - {vote.proposalId}</div>
         ))}
-
       </div>
       <h1 className={styles.title}>Dashboard</h1>
       <div className={styles.proposalGrid}>
@@ -160,8 +178,8 @@ const Dashboard = () => {
               <p>Proposal Id - {parseInt(proposal[0]._hex)}</p>
               <p>Proposal Title - {proposal[1]}</p>
               <div className={styles.votes}>
-                <button disabled={disabledButtons[index]} onClick={(e) => voteByUser(parseInt(proposal[0]._hex), proposal[1], 1, e)}>Yes</button>
-                <button disabled={disabledButtons[index]} onClick={(e) => voteByUser(parseInt(proposal[0]._hex), proposal[1], 0, e)}>No</button>
+                <button onClick={(e) => voteByUser(parseInt(proposal[0]._hex), proposal[1], 1, e)}>Yes</button>
+                <button onClick={(e) => voteByUser(parseInt(proposal[0]._hex), proposal[1], 0, e)}>No</button>
               </div>
               <div className={styles.votesBox}>
                 <p>For Votes : {parseInt(proposal[3]._hex)}</p>

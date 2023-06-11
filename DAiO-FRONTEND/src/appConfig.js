@@ -38,9 +38,9 @@ export const AppProvider = ({ children }) => {
       console.log("HIII");
       const proposals = await providerContract.proposalList();
       const proposalCount = await providerContract._proposalId();
-      setProposalData(proposals)
-      console.log(proposalData)
-      console.log(proposalCount)
+      setProposalData(proposals);
+      console.log(proposalData);
+      console.log(proposalCount);
     };
     getProposals();
   }, [providerConnected]);
@@ -51,11 +51,11 @@ export const AppProvider = ({ children }) => {
         await requestAccount();
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
-        const newsignedContract = new ethers.Contract(
-          contractAddress,
-          ABI,
-          signer
-        );
+        // const newsignedContract = new ethers.Contract(
+        //   contractAddress,
+        //   ABI,
+        //   signer
+        // );
         console.log("connected");
         setIsRegistered(await IsRegistered());
         console.log(isRegistered);
@@ -68,7 +68,7 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  console.log(isRegistered)
+  console.log(isRegistered);
   const Register = async (ai_address, ai_status) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
@@ -94,19 +94,18 @@ export const AppProvider = ({ children }) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     const newsignedContract = new ethers.Contract(contractAddress, ABI, signer);
-    const voted = await newsignedContract.voted(voter, proposalId)
-    return voted
-  }
+    const voted = await newsignedContract.voted(voter, proposalId);
+    return voted;
+  };
 
   const checkVotedAI = async (voter, proposalId) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     const newsignedContract = new ethers.Contract(contractAddress, ABI, signer);
     const votedAI = await newsignedContract.votedAI(voter, proposalId);
-    console.log(votedAI)
+    // console.log(votedAI)
     return votedAI;
-  }
-
+  };
 
   const VoteOnproposalAI = async (proposalId, vote) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -194,7 +193,7 @@ export const AppProvider = ({ children }) => {
         error,
         proposalData,
         checkVoted,
-        checkVotedAI
+        checkVotedAI,
       }}
     >
       {children}
