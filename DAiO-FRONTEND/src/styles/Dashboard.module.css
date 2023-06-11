@@ -1,0 +1,209 @@
+.container {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Arial", sans-serif;
+}
+
+.connectButton {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.proposalsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-top: 2rem;
+}
+
+.proposalsSection {
+  flex: 1;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.proposalsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.proposal {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.activeProposal {
+  background-color: #c1f2c1;
+  animation: breathe 2s infinite;
+}
+
+.closedProposal {
+  background-color: #f2c1c1;
+  animation: breathe 2s infinite;
+}
+
+@keyframes breathe {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+.glowingText {
+  animation: glowing 2s ease-in-out infinite;
+}
+
+@keyframes glowing {
+  0% {
+    color: #00ff00; /* Green color */
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+  }
+  50% {
+    color: #00ff00; /* Green color */
+    text-shadow: none;
+  }
+  100% {
+    color: #00ff00; /* Green color */
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+  }
+}
+
+.floatingAnimation {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+.votingButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.votingButtons button {
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.votingButtons button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.proposalGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 13px;
+  width: 80%;
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.2);
+  margin: 20px;
+}
+
+.activeProposalSection {
+  margin: 23px;
+  border-radius: 13px;
+  box-shadow: 0 2px 4px rgba(84, 78, 78, 0.2);
+}
+
+.closedProposalSection {
+  margin: 23px;
+  border-radius: 13px;
+  box-shadow: 0 2px 4px rgba(84, 78, 78, 0.2);
+}
+
+.proposalBox {
+  margin: 12px;
+  padding: 23px;
+  background-color: rgba(240, 248, 255, 0.228);
+  border-radius: 12px;
+}
+
+.proposalBoxComplete {
+  margin: 12px;
+  padding: 23px;
+  background-color: rgba(118, 73, 25, 0.228);
+  border-radius: 12px;
+}
+
+.votes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.votes > button {
+  padding: 8px;
+  background-color: #000;
+  border: 2px solid wheat;
+  color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+}
+
+.votes > button:hover {
+  scale: 1.05;
+}
+
+.votesBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.addProposalBtn {
+  margin-top: 50px;
+  padding: 10px 12px;
+  background-color: #000;
+  border: 2px solid wheat;
+  color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+}
+
+.addProposalBtn:hover {
+  scale: 1.05;
+}
