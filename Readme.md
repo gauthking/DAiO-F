@@ -1,6 +1,7 @@
 # **DAiO** ![Picture2](https://github.com/chiranjeev13/DAiO-F/assets/90678802/179e84ba-7b69-4909-aee1-9140a53e358d)
 
 We have prepared this README file with great care to provide a comprehensive guide to both deploying our work for developers and understanding the journey of this project. We kindly request that you review it.
+Please be Signed into Github to view the Flowchart Images we have uploaded.
 
 # Sections:
 1.	Deployment Walkthrough + Technical Details
@@ -88,9 +89,6 @@ During the development of DAiO, we encountered several challenges that required 
 5.  **Fusing polar opposite tech stacks and integrating the AI feature into our DAO**: Combining blockchain technology with AI posed a significant challenge due to their different characteristics and requirements. We dedicated significant time and effort to streamline the integration of these two tech stacks. By leveraging the capabilities of FastAPI and implementing robust communication protocols, we successfully fused the AI feature into our DAO, enabling efficient interaction and collaboration between the two technologies. 
 
 ## What’s Next for Us
-
-### Code Improvements
-1. ***Automated Calls of check_proposal_status()*** : Currently, this function has to be manually called from the backend fastAPI code. Instead of that, we can start the calling of this function as result of an API call from the frontend. So, everytime a user logs in we can send a request to the API to run that function which basically checks for the closed proposals where the user hasn't voted for, and if it finds any, it will invoke the ai_automated_vote function which will calculate the average persona of the previous proposal-vote sentiment values and based on the closeness of the resulting persona sentiment with the sentiment value of the current proposal-vote value it will cast the vote using the private key alotted to that user.
 
 ### Improvements
 1.  **Optimize Smart Contract and AI algo Efficiency**: Review and optimize the smart contracts underlying DAiO to improve efficiency and reduce gas costs. Consider implementing techniques such as contract sharding, contract upgrades, or layer-2 solutions to enhance scalability as well as advanced avenues in AI and ML like federated learning and load distribution optimization.
